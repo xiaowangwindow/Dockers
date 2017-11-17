@@ -1,0 +1,34 @@
+version: "3"
+services:
+    mongo:
+        container_name: dc-mongo-release
+        image: mongo:latest
+        environment:
+            - MONGO_INITDB_ROOT_USERNAME=USERNAME
+            - MONGO_INITDB_ROOT_PASSWORD=PASSWORD
+        ports:
+            - "27017:27017"
+        restart: always
+        tty: true
+        volumes:
+            - ./data:/data
+            - ./data/configdb:/data/configdb
+            - ./data/db:/data/db
+#        command: --auth
+#    mongo-express:
+#        container_name: dc-mongo-express-release
+#        environment:
+#            - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+#            - ME_CONFIG_MONGODB_ADMINUSERNAME=USERNAME
+#            - ME_CONFIG_MONGODB_ADMINPASSWORD=PASSWORD
+#            - ME_CONFIG_BASICAUTH_USERNAME=USERNAME
+#            - ME_CONFIG_BASICAUTH_PASSWORD=PASSWORD
+#
+#            #- ME_CONFIG_MONGODB_AUTH_USERNAME=USERNAME
+#            #- ME_CONFIG_MONGODB_AUTH_PASSWORD=PASSWORD
+#        image: mongo-express:latest
+#        links:
+#            - mongo:dc-mongo
+#        ports:
+#            - "8081:8081"
+#        restart: always

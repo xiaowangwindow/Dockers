@@ -1,0 +1,17 @@
+version: "3"
+services:
+    mongo:
+        container_name: dc-mongo
+        image: mongo:latest
+        ports:
+            - "27017:27017"
+        volumes:
+            - ./data:/data
+    mongo-express:
+        container_name: dc-mongo-express
+        image: mongo-express:latest
+        links:
+            - mongo:dc-mongo
+        ports:
+            - "8082:8081"
+        restart: always

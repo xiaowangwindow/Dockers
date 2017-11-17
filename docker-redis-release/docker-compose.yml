@@ -1,0 +1,19 @@
+version: "3"
+services:
+    redis:
+        container_name: dc-redis
+        image: redis:latest
+        ports:
+            - "6379:6379"
+        restart: always
+        volumes:
+            - ./data:/data
+        command: --requirepass PASSWORD
+    redis-commander:
+        command: --redis-host redis --redis-password PASSWORD
+        container_name: dc-redis-commander
+        image: tenstartups/redis-commander:latest
+        links:
+            - redis:dc-redis
+        ports:
+            - "8082:8081"
