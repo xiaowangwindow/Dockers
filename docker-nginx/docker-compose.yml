@@ -1,0 +1,13 @@
+version: "3"
+services:
+    nginx:
+        container_name: dc-nginx
+        image: nginx:alpine
+        ports:
+            - 80:80
+        volumes:
+            - ./nginx.conf:/etc/nginx/nginx.conf
+        logging:
+            driver: "syslog"
+            options:
+                syslog-address: "tcp://localhost:601"

@@ -1,0 +1,12 @@
+version: "3"
+services:
+    di-rabbitmq:
+        container_name: di-rabbitmq
+        image: "rabbitmq:3-management"
+        environment:
+            RABBITMQ_DEFAULT_USER: USERNAME
+            RABBITMQ_DEFAULT_PASS: PASSWORD
+        ports:
+            - "15672:15672"
+            - "5672:5672"
+            - "25672:25672"

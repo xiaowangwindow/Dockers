@@ -1,0 +1,19 @@
+version: '3'
+services:
+    shadowsocks:
+        container_name: dc-shadowsocks-sslocal
+        build:
+            dockerfile: Dockerfile-sslocal
+        expose:
+            - '1080'
+        image: shadowsocks/sslocal:latest
+        networks:
+            pub_net:
+                ipv4_address: 10.10.10.10
+            bridge:
+        restart: always
+        tty: true
+networks:
+    pub_net:
+        external: true
+    bridge:

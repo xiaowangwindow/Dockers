@@ -1,0 +1,12 @@
+version: '3'
+services:
+    shadowsocks:
+        container_name: dc-shadowsocks-ssserver
+        build:
+            context: .
+            dockerfile: Dockerfile-ssserver
+        expose:
+            - '8388'
+        image: shadowsocks/ssserver:latest
+        restart: always
+        tty: true

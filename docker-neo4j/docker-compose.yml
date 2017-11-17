@@ -1,0 +1,21 @@
+# http://neo4j.com/docs/operations-manual/current/installation/docker/
+# https://hub.docker.com/_/neo4j/
+version: "3"
+services:
+    neo4j:
+        container_name: dc-neo4j
+        # environment:
+        #     NEO4J_AUTH: USERNAME/PASSWORD
+        image: neo4j:latest
+        ports:
+            - "7473:7473"
+            - "7474:7474"
+            - "7687:7687"
+        restart: always
+        tty: true
+        volumes:
+            - ./conf:/conf
+            - ./data:/data
+            - ./logs:/logs
+            - ./plugins:/plugins
+            - ./ssl:/ssl

@@ -1,0 +1,24 @@
+# This Dockerfile is written for ssserver
+
+FROM ubuntu:16.04
+
+# COPY ./sources.list /etc/apt/
+
+RUN apt-get update \
+ && apt-get install -y \
+    python-pip
+
+#RUN mkdir /root/.pip/ \
+# && echo '[global]' >> /root/.pip/pip.conf \
+# && echo 'index-url = https://pypi.douban.com/simple' >> /root/.pip/pip.conf
+
+RUN pip install -U \
+    pip \
+    shadowsocks
+
+COPY ./shadowsocks.json /root/
+
+EXPOSE 8388
+
+# CMD ["sslocal", "-c", "/root/shadowsocks.json"]
+CMD ["ssserver", "-c", "/root/shadowsocks.json"]

@@ -1,0 +1,13 @@
+version: '3'
+services:
+    mysql:
+        container_name: dc-mysql-release
+        image: mysql:latest
+        environment:
+            - MYSQL_ROOT_PASSWORD=PASSWORD
+            - MYSQL_USER=USERNAME
+            - MYSQL_PASSWORD=PASSWORD
+        ports:
+            - 3306:3306
+        volumes:
+            - ./data:/var/lib/mysql

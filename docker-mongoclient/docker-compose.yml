@@ -1,0 +1,11 @@
+version: "3"
+services:
+    mongo-client:
+        container_name: dc-mongo-client
+        image: mongoclient/mongoclient
+        ports:
+            - "3000:3000"
+        restart: always
+        tty: true
+        volumes:
+            - ./data:/data/db

@@ -1,0 +1,9 @@
+version: "3"
+services:
+    mongo-express:
+        container_name: dc-mongo-express-readonly
+        environment:
+            - ME_CONFIG_MONGODB_ENABLE_ADMIN=true
+        image: mongo-express:latest
+        ports:
+            - "8321:8081"

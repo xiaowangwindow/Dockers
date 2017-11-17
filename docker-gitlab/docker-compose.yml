@@ -1,0 +1,15 @@
+version: "3"
+services:
+    di-gitlab:
+        container_name: di-gitlab
+        image: gitlab/gitlab-ce:latest
+        environment:
+            GITLAB_ROOT_PASSWORD: PASSWORD
+            GITLAB_OMNIBUS_CONFIG: gitlab_rails['gitlab_shell_ssh_port'] = 8022
+        ports:
+            - "8084:80"
+            - "8022:22"
+        volumes:
+            - "./data/data:/var/opt/gitlab"
+            - "./data/log:/var/log/gitlab"
+            - "./data/config:/etc/gitlab"

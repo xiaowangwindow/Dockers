@@ -1,0 +1,11 @@
+version: '3'
+services:
+    squid:
+        container_name: dc-squid
+        image: sameersbn/squid
+        ports:
+            - 31128:31128
+        volumes:
+            - ./conf/:/etc/squid3/
+            - ./cache:/var/spool/squid3
+            - ./log:/var/log/squid3/

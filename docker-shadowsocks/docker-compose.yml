@@ -1,0 +1,17 @@
+version: '3'
+services:
+    shadowsocks:
+        container_name: dc-shadowsocks
+        expose:
+            - '1080'
+        image: shadowsocks:latest
+        networks:
+            pub_net:
+                ipv4_address: 10.10.10.10
+            bridge:
+        restart: always
+        tty: true
+networks:
+    pub_net:
+        external: true
+    bridge:
