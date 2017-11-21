@@ -1,0 +1,15 @@
+version: '3'
+services:
+    bind:
+        container_name: dc-bind
+        environment:
+            ROOT_PASSWORD: PASSWORD
+        image: sameersbn/bind:latest
+        ports:
+            - '52:53'
+            - '10000:10000'
+        restart: always
+        tty: true
+        volumes:
+            - ./bind-data:/data
+

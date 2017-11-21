@@ -1,0 +1,9 @@
+version: "3"
+services:
+    jetbrain:
+        container_name: dc-jetbrains
+        image: woailuoli993/jblse:latest
+        ports:
+            - 20701:20701
+        restart: always
+        tty: true
