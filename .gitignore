@@ -147,4 +147,5 @@ docker-lantern/
 docker-mongo-cluster/
 fabfile.py
 scrapyd-authenticated/
+docker-bind/bind-data/
 

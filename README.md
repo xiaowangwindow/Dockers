@@ -38,3 +38,4 @@ docker-squid
 
 docker-syslog
 
+docker-virus

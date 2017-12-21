@@ -1,0 +1,5 @@
+version: '3'
+services:
+  virus:
+    container_name: dc-virus
+    build: .
